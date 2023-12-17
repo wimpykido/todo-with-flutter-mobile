@@ -42,6 +42,17 @@ class TodoCubit extends Cubit<List<Todo>> {
 
     emit(updatedList);
   }
-  //removeTodo
-  //editTodo
+
+  void deleteTodo(String id) {
+    originalTodos.removeWhere((todo) => todo.iD == id);
+    emit(originalTodos);
+  }
+
+  void updateTodo(Todo updatedTodo) {
+    final updatedList = state.map((todo) {
+      return todo.iD == updatedTodo.iD ? updatedTodo : todo;
+    }).toList();
+
+    emit(updatedList);
+  }
 }

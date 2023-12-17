@@ -66,7 +66,7 @@ class _TodoItemState extends State<TodoItem> {
             trailing: isLongPressed
                 ? IconButton(
                     icon: const Icon(Icons.delete, color: Colors.redAccent),
-                    onPressed: () => {},
+                    onPressed: () => context.read<TodoCubit>().deleteTodo(widget.todo.iD),
                   )
                 : IconButton(
                     icon: const Icon(Icons.arrow_forward_ios,
